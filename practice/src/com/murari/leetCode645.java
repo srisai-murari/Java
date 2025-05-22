@@ -32,7 +32,7 @@ public class leetCode645 {
 
 
         }
-return new int[] {-1};
+return new int[] {-47};
     }
     static void swap(int[] arr,int index1, int index2){
         int temp = arr[index1];
