@@ -1,4 +1,4 @@
-package com.murari;
+package bytePrograms;
 
 import java.util.Scanner;
 //bitwise lessons
