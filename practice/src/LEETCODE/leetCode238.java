@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class leetCode238 {
     public static void main(String[] args) {
-        int[] arr = {0,0}; //[-1,1,0,-3,3] ,[0,0]
+        int[] arr = {-1,1,0,-3,3}; //,[0,0]
         System.out.println(Arrays.toString(arr));
         int[] ans = prodArrayExceptItself(arr);
         System.out.println(Arrays.toString(ans));
