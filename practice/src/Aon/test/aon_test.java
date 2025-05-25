@@ -4,6 +4,7 @@ import java.util.*;
 
 public class aon_test {
     static boolean isprime(int n){
+        if(n < 0) return false;
         boolean flag =true;
         for (int i = 2; i*i <= n ; i++) {
             if(n%i ==0) {
@@ -26,7 +27,6 @@ public class aon_test {
     }
 
     public static void main(String[] args) {
-
         int flag =0;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter size of an array");
