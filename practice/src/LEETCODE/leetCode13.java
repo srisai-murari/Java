@@ -4,14 +4,54 @@ import java.util.HashMap;
 
 public class leetCode13 {
     public static void main(String[] args) {
-        String roman = "III";
+        String roman = "LD";
         int integer = FailedromanToInt(roman);
         int integer2 = HashMapRomanToInt(roman);
 //        int integer3 = ifelseRomanToInt(roman);
         System.out.println(integer2);
     }
 
-
+    private static int ifelseRomanToInt(String roman) {
+        char [] ch = roman.toCharArray();
+        int ans = 0;
+        int i = 0;
+        while(i < roman.length()){
+            if(ch[i] == 'I'){
+                if(ch[i+1] == 'V'){
+                    ans = ans + 4;}
+                else if(ch[i+1] == 'X'){
+                    ans = ans + 9;}
+                    i += 2;}
+                else{
+                    ans = ans +1;
+                    i++;
+                }}
+            if(ch[i] == 'V'){
+                ans += 5;
+                i+=1;
+            }
+            if(ch[i] == 'X'){
+                if(ch[i+1] == 'L'){
+                    ans = ans + 40;}
+                else if(ch[i+1] == 'C'){
+                    ans = ans + 90;}
+                    i += 2;}
+                else{
+                    ans = ans +10;
+                    i++;
+                }
+        if(ch[i] == 'L'){
+            if(ch[i+1] == 'C'){
+                ans = ans + 150;}
+            else if(ch[i+1] == 'D'){
+                ans = ans + 450;}
+            i += 2;}
+        else{
+            ans = ans +10;
+            i++;
+        }
+            return ans;
+    }
 
     private static int HashMapRomanToInt(String roman) {
         HashMap<Character, Integer> rom = new HashMap<>();
@@ -43,17 +83,33 @@ public class leetCode13 {
         char [] ch = str.toCharArray();
         int ans = 0;
 
-        for (char c : ch) {
-            ans = switch (c) {
-                case 'I' -> ans + 1;
-                case 'V' -> ans + 5;
-                case 'X' -> ans + 10;
-                case 'L' -> ans + 50;
-                case 'C' -> ans + 100;
-                case 'D' -> ans + 500;
-                case 'M' -> ans + 1000;
-                default -> ans;
-            };
+        for (int i = 0; i<ch.length; i++) {
+            switch (ch[i]) {
+                case 'I':
+                    ans = ans + 1;
+                    break;
+                case 'V':
+                    ans = ans + 5;
+                    break;
+                case 'X':
+                    ans = ans + 10;
+                    break;
+                case 'L':
+                    ans = ans + 50;
+                    break;
+                case 'C':
+                    ans = ans + 100;
+                    break;
+                case 'D':
+                    ans = ans + 500;
+                    break;
+                case 'M':
+                    ans = ans + 1000;
+                    break;
+                default:
+                    ans = ans;
+                    break;
+            }
         }
 
         return ans;
