@@ -3,7 +3,7 @@ package recusions;
 public class rotatedBinarySearch {
     public static void main(String[] args) {
         int [] arr = {5,6,7,8,1,2,3};
-        int index = rotatedBS(arr,4,0,arr.length-1, 0);
+//        int index = rotatedBS(arr,4,0,arr.length-1, 0);
     }
 
 //    private static int rotatedBS(int[] arr, int target, int s, int e,int mid) {

@@ -40,6 +40,10 @@ public class strings {
         System.out.println(orgstr);
         System.out.println(strr);
         strr = strr.reverse();
+        StringBuilder ssss = new StringBuilder();
+        ssss.append((char)('A' +25));
+        System.out.println(ssss + " this is sbbbbbbbbb");
+        System.out.println();
         System.out.println(strr);
         System.out.println(orgstr.equals(strr.toString()));
         System.out.println();
