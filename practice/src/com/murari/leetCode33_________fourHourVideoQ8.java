@@ -2,7 +2,7 @@ package com.murari;
 
 public class leetCode33_________fourHourVideoQ8 {
     public static void main(String[] args) {
-        int[] ans = {5,1,3};
+        int[] ans = {4,5,6,7,0,1,2};
         int index = search(ans,5);
         if(index == -1)
             System.out.println("Num not found");
