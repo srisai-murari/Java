@@ -48,7 +48,12 @@ public class strings {
         System.out.println(orgstr.equals(strr.toString()));
         System.out.println();
 
+
+
+
+        }
+
     }
 
 
-}
+
