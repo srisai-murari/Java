@@ -38,8 +38,7 @@ public class sorting {
     static int[] selectionSort(int[] arr) { // good for small sized arrays
         //Complexities = best       worst        average
         //              O(n^2)      O(n^2)        O(n^2)
-        int[] sorted = new int[arr.length];
-        sorted = arr.clone();
+        int[] sorted = arr.clone();
         for (int i = 0; i < sorted.length - 1; i++) {
             int max = maxIndex(sorted, sorted.length - i);
             //                int temp = sorted[sorted.length-1 - i];
