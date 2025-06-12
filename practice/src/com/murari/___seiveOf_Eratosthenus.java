@@ -1,10 +1,14 @@
 package com.murari;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class ___seiveOf_Eratosthenus {
     public static void main(String[] args) {
         int n = 20;
-        boolean [] prime = new boolean[n+1];
+        boolean [] prime = new boolean[n + 1];
         isprime(n,prime);
+        ArrayList<Boolean> prime1= new ArrayList<>(Arrays.asList(true));
         System.out.println();
     }
     static void isprime(int n,boolean[] prime){

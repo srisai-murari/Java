@@ -12,16 +12,33 @@ public class skip {
 //passing only given string and returning new string
         System.out.println(remSingleArg(str));
 
-        //SKIP STRING
-        String remJK = "ejkwjkzjk";
-        System.out.println(remString(remJK));
+        //SKIP STRING;
+        String s = "dakjdfappledfkj";
+        System.out.println(remString(s));
+        System.out.println(skipApple(s));
+
+        //SKIP APPLE ONLY IF ITS NOT APPLEJUICE
+
+        String str1 = "dkjfaapplejuicekfajlapple";
+        System.out.println(skipAppleWCondition(str1));
+
+    }
+
+    private static String skipAppleWCondition(String str) {
+        if(str.isEmpty()){
+            return "";
+        }
+        char ch = str.charAt(0);
+
+        if(str.startsWith("apple") && !str.startsWith("applejuice")) return skipAppleWCondition(str.substring(5));
+        else return ch + skipAppleWCondition(str.substring(1));
     }
 
     private static String remString(String remJK) {
         if(remJK.isEmpty())
             return "";
-        if(remJK.startsWith("jk")) {
-            return remString(remJK.substring(2));
+        if(remJK.startsWith("apple")) {
+            return remString(remJK.substring(5));
         }
         else return remJK.charAt(0) + remString(remJK.substring(1));
     }
@@ -60,5 +77,15 @@ public class skip {
         }
         else
             return remA(str, sb, ++i);
+    }
+
+    private static String skipApple(String str){
+        if(str.isEmpty()){
+            return "";
+        }
+        char ch = str.charAt(0);
+        String s = "apple";
+        if(str.startsWith(s)) return skipApple(str.substring(5));
+        else return ch + skipApple(str.substring(1));
     }
 }
