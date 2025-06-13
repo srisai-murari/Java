@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class subSequences {
     public static void main(String[] args) {
-        String s = "abs";
+        String s = "abc";
+
         allSubStrings("", s);
 
         ArrayList<String> n = new ArrayList<>();
         ArrayList<String> ans = allSubStrings("", s, n);
         int last = ans.size() - 1;
-        System.out.println(last);
+//        System.out.println(last);
         ans.remove(last);
         System.out.println(ans);
 
@@ -30,7 +31,7 @@ public class subSequences {
 
     }
     private static void allSubStrings(String p, String up) {
-        if(up.length() == 0) {
+        if(up.isEmpty()) {
             System.out.print(p + " ");
             return;
         }

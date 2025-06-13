@@ -6,7 +6,7 @@ import java.util.List;
 
 public class subset {
     public static void main(String[] args) {
-        int [] arr = {1,2,4};
+        int [] arr = {1,2,2};
         List<List<Integer>> sub = sub(arr);
         System.out.println(sub);
     }
