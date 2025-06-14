@@ -50,7 +50,7 @@ public class subSequences {
         }
         char ch = up.charAt(0);
         ArrayList<String> left = allSubStringsNoALinArg(p+ch, up.substring(1));
-        ArrayList<String> right = allSubStringsNoALinArg(p, up.substring(1));
+            ArrayList<String> right = allSubStringsNoALinArg(p, up.substring(1));
         right.addAll(left);
         return right;
 
