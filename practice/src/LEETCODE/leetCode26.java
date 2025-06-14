@@ -11,7 +11,7 @@ public class leetCode26 {
     }
 
     private static int remDuplicates(int[] arr) {
-        int j = 1;
+        int j = 0;
         for (int i = 0; i < arr.length; i++) {
             if(arr[i] == arr[j])
                 continue;
@@ -20,6 +20,6 @@ public class leetCode26 {
 
 
         }
-        return j ;
+        return j + 1;
     }
 }
