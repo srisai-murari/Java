@@ -1,4 +1,4 @@
-package com.murari;
+package recusions;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class subset {
                 inner.add(arr[i]);
                 outer.add(inner);
             }
-            }
+        }
         return outer;
 
     }

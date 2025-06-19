@@ -5,6 +5,7 @@ import java.util.List;
 public class permutations {
     public static void main(String[] args) {
         ArrayList<String> ans = retPerm("", "123");
+        System.out.println(ans);
         //convert ans arraylist to list of list
 
         List<List<Integer>> finalAns = convertToIntegerLists(ans);
@@ -12,12 +13,11 @@ public class permutations {
         System.out.println(finalAns);
 
         //without ret type
-        perm("", "abs");
+//        perm("", "abs");
 
 //printing combinations of a number array
-        List<List<Integer>> anss = new ArrayList<>();
         int [] arrr = {1,2,3};
-        anss = retPerm(arrr);
+        List<List<Integer>> anss = retPerm(arrr);
         System.out.println(anss);
 
 //        converting an integer to string and string to integer
@@ -68,7 +68,7 @@ public class permutations {
         return ans;
     }
 
-    //converting the above arraylist to list of list
+    //converting the above arraylist<String> to list of list<Integer>>
     private static List<List<Integer>> convertToIntegerLists(List<String> ans) {
         List<List<Integer>> result = new ArrayList<>();
 
