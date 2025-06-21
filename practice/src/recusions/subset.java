@@ -6,7 +6,7 @@ import java.util.List;
 
 public class subset {
     public static void main(String[] args) {
-        int [] arr = {1,2,2};
+        int [] arr = {0,1,0,2,0,1,0};
         List<List<Integer>> sub = sub(arr);
         System.out.println(sub);
     }
@@ -24,5 +24,7 @@ public class subset {
         return outer;
 
     }
+
+//    static int count (List<List<Integer>> ans)
 
 }

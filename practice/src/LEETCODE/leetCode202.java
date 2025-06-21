@@ -1,32 +1,47 @@
 package LEETCODE;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class leetCode202 {
     public static void main(String[] args) {
-        int n = 120;
+        int n = 7;
         boolean ans = happyNumber(n);
+        System.out.println(ans);
+
     }
 
     private static boolean happyNumber(int n) {
-        ArrayList<Integer> reps = new ArrayList<>();
-        String sepval = sepval(n);
-        System.out.println(sepval);
-        n = calSqr_sum(sepval);
-    return true;}
-
-    private static int calSqr_sum(String sepval) {
-        return 0;
+        ArrayList<Integer> visited = new ArrayList<>();
+        int sum = n;
+        while(true) {
+            sum = indivSquares(sum);
+            if (sum == 1)
+                return true;
+            else if (isPresent(sum, visited)) {
+                return false;
+            }
+        }
     }
 
-    private static String sepval(int n) {
-        ArrayList<Integer> sep = new ArrayList<>();
-        while(n > 0) {
-            sep.add(n % 10);
-            n = n / 10;
+    private static int indivSquares(int n){
+        String str = String.valueOf(n);
+        int sum = 0;
+        for (int i = 0; i < str.length(); i++) {
+            int val = (str.charAt(i)) - '0';
+            sum += val * val;
+
         }
-        int[] arr = new int[sep.size()];
-    return sep.toString();
+        System.out.println(sum);
+
+
+    return sum;
+    }
+
+    private static boolean isPresent(int sum, ArrayList<Integer> visited){
+        if(visited.contains(sum))
+            return true;
+        else visited.add(sum);
+        return false;
     }
 }
