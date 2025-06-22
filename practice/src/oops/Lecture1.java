@@ -8,7 +8,7 @@ public class Lecture1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Student boy1 = new Student();
-        System.out.println(boy1);
+        System.out.println(boy1.name);
 
         boy1.roll = 100;
         boy1.name = "kodu";
