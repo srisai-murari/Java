@@ -1,3 +1,5 @@
+//// LANGUAGE WITHOUT POLYMORPHISM ARE NOT CONSIDERED AS OOP LANGUAGE
+
 package oops.polymorphism;
 //DYNAMIC POLYMORPHISM
 public class FinalCaller {
