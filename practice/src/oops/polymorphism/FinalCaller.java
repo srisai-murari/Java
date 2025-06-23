@@ -23,14 +23,14 @@ public class FinalCaller {
         Shapes rect = new Rectangle();
 
         cir.area();
-        //it calls circle area()method instead of calling area()method present in the Shapes
+        //it calls Circle area()method instead of calling Shapes area()method
 //        whyy??
 //        Shapes cir --> this is processed in compile time
 
 //        new Circle(); --> reference variables are obtained during runtime
 
         //        new circle()👈👈👈👈👈👈👈👈👈👈👈
-        //which method is to be called depends on the 👆 and this is called upcasting
+        //which method is to be called is dependent on the 👆 and this and it is called upcasting
 
 //        Shapes cir ---> "Shapes" only says what is has access to. It has access to area()of its own class
 //        but during run time it overrides and calls Circle's area()
