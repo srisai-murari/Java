@@ -2,7 +2,7 @@
 
 package oops.polymorphism;
 //DYNAMIC POLYMORPHISM
-public class FinalCaller {
+public class Main {
     public static void main(String[] args) {
         Shapes shape =  new Shapes();
 
@@ -21,8 +21,8 @@ public class FinalCaller {
         //// check inheritance(class BoxAccessor) for more info
 
         Shapes cir = new Circle();
-        Shapes sq = new Square();
-        Shapes rect = new Rectangle();
+//        Shapes sq = new Square();
+//        Shapes rect = new Rectangle();
 
         cir.area();
         //it calls Circle area()method instead of calling Shapes area()method

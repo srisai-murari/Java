@@ -1,6 +1,6 @@
 package oops.Inheritance;
 
-public class BoxAccessor {
+public class Main {
     public static void main(String[] args) {
         BoxParent box = new BoxParent();
 //        System.out.println(box.weight);//parent class cannot access the child elements
@@ -56,6 +56,11 @@ public class BoxAccessor {
 
 
 
+
+//accessing the private elements with the help of methods
+        BoxParent test = new BoxParent(1,2,3,4);
+
+        System.out.println(test.getNoAccess());
     }
 
 
