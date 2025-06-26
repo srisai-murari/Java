@@ -3,9 +3,9 @@ package recusions;
 public class Sudoku {
     public static void main(String[] args) {
         int [][] sudoku = {
-                {3, 0, 6, 5, 0, 8, 4, 0, 0},
-                {5, 2, 0, 0, 0, 0, 0, 0, 0},
-                {0, 8, 7, 0, 0, 0, 0, 3, 1},
+                {5, 3, 0, 0, 7, 0, 0, 0, 0},
+                {6, 0, 0, 1, 9, 5, 0, 0, 0},
+                {0, 9, 8, 0, 0, 0, 0, 6, 0},
                 {0, 0, 3, 0, 1, 0, 0, 8, 0},
                 {9, 0, 0, 8, 6, 3, 0, 0, 5},
                 {0, 5, 0, 0, 9, 0, 6, 0, 0},
@@ -22,14 +22,14 @@ public class Sudoku {
 
     static boolean solve(int [][] board){
         int row = -1, col = -1;
-        int n = board.length;
+        int size = board.length;
 
         //flag element
         boolean complete = true;
         //assuming sudoku is solved and no empty elements are present
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 if(board [i][j] == 0) {
                     row = i;
                     col = j;
