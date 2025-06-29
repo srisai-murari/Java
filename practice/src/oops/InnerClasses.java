@@ -100,7 +100,7 @@ package oops;
 //    //constructor
 //    public car(String a) {
 ////         this.a = a;//as string is static we can just call it using class name
-//        //this is not required as "String a" is static
+//        //"this" is not required as "String a" is static
 //
 //        car.a = a;
 //    }
