@@ -1,5 +1,5 @@
 package com.murari;
-
+//INFINITE ARRAY
 public class fourHourVideoQ5_amazon {
     public static void main(String[] args) {
         int[] arr = {2,3,5,9,14,16,18,19,20,21,22,24,29,30,34,35,39,42,47,49,64,68};
@@ -12,6 +12,7 @@ public class fourHourVideoQ5_amazon {
 //        int index = -1;
 //        int end = 1;
 //        int mid =0;
+/// finding chunk
 //        while(start <= end){
 //            mid = (start + end)/2;
 //              if(arr[mid] == target )
@@ -21,7 +22,7 @@ public class fourHourVideoQ5_amazon {
 //                  end = start*2+1;
 //
 //              }
-//              else if(target <= arr[end]){
+//              else if(target < arr[end]){
 //                   return index = bs(arr,start,end, target);
 //              }
 //
@@ -59,4 +60,16 @@ public class fourHourVideoQ5_amazon {
         return -1;
 
     }
-}
+//
+//    int s = 0, e = 1, mid = 0;
+//    while(s <= e){
+//        if(arr[mid] == target){
+//            return mid;
+//        }
+//        else  if(arr[e] < target){
+//            s = e + 1;
+//            e = s * 2 + 1;}
+//        else if(arr[e] > target)
+//            bs(arr, s, e, target)
+    }
+

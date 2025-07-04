@@ -3,13 +3,14 @@ package com.murari;
 public class leetCode1095_fourHourVideoQ7 {
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,5,6,3,2,1};
-        int index = findInMountainArray(arr, 7);
+        int index = findInMountainArray(arr, 5);
         System.out.println(index);
 
     }
     static int findInMountainArray(int[] arr, int target){
         int indexOfPeak = peakMountainArray(arr);
         boolean Asc = orderAgnosticBS(arr, target, 0, indexOfPeak);
+
         boolean Dsc = orderAgnosticBS(arr, target, indexOfPeak+1, arr.length-1);
         if(Asc && Dsc){
             return 2;
@@ -17,6 +18,8 @@ public class leetCode1095_fourHourVideoQ7 {
         else if (Asc || Dsc){
             return 1;
         }
+
+
         return -1;
 
     }

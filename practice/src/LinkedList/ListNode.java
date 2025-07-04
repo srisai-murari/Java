@@ -1,16 +1,16 @@
 package LinkedList;
 
-public class LLSingly {
+public class ListNode {
     private  int size;
-    private Node head;
-    private Node tail;
+    private next head;
+    private next tail;
 
-    public LLSingly() {
+    public ListNode() {
         this.size = 0;
     }
 /// INSERTION
     public void insertFirst(int val){
-        Node node = new Node(val);
+        next node = new next(val);
         node.next = head;
         head = node;
         if(tail == null)
@@ -23,7 +23,7 @@ public class LLSingly {
             insertFirst(val);
             return;
         }
-        Node node = new Node(val);
+        next node = new next(val);
         tail.next = node;
         tail = node;
         size+=1;
@@ -43,11 +43,11 @@ public class LLSingly {
             insertAtEnd(val);
             return;
         }
-        Node temp = head;
+        next temp = head;
         for (int i = 1; i < index; i++) {
             temp = temp.next;
         }
-        Node node = new Node(val, temp.next);
+        next node = new next(val, temp.next);
         temp.next = node;
 
 
@@ -66,10 +66,10 @@ public class LLSingly {
 
     }
 
-    private Node helperRet(int val, Node temp, int index){
+    private next helperRet(int val, next temp, int index){
 
         if(index == 0){
-            Node node = new Node(val, temp);
+            next node = new next(val, temp);
             size++;
             return node;
         }
@@ -79,9 +79,9 @@ public class LLSingly {
 
     }
 
-    private void helperNoRet(int val, Node temp, int index){
+    private void helperNoRet(int val, next temp, int index){
         if(index == 1){
-            Node node = new Node(val, temp.next);
+            next node = new next(val, temp.next);
             temp.next = node;
             size++;
             return;
@@ -118,7 +118,7 @@ public class LLSingly {
     public int deleteLast(){
         if(size <= 1)
             return deleteAtFirst();
-        Node secondLast = get(size - 2); //LL doesnt start from index 0, so we find the element that is just behind the last element
+        next secondLast = get(size - 2); //LL doesnt start from index 0, so we find the element that is just behind the last element
         //and size is always a number extra
         int val = tail.value;
         /// works
@@ -140,15 +140,15 @@ public class LLSingly {
 
        //first find the prev_elem of the elem you want to remove
         // with the prev_elem's next value we can navigate original index value
-       Node previousElement = get(index - 1);
+       next previousElement = get(index - 1);
        int val = previousElement.next.value; //goes to the next node and gets the value of it
 
         previousElement.next = previousElement.next.next;
         return val;
     }
 
-    public Node find(int value){
-        Node temp = head;
+    public next find(int value){
+        next temp = head;
         while(temp != null){
             if(temp.value == value)
                 return temp;
@@ -157,8 +157,8 @@ public class LLSingly {
         return null;
     }
 
-    public Node get(int index) {
-        Node temp = head;
+    public next get(int index) {
+        next temp = head;
         for(int i = 0; i < index; i++) {
             temp = temp.next;
         }
@@ -170,7 +170,7 @@ public class LLSingly {
 
 
     public void display(){
-        Node temp = head;
+        next temp = head;
         while(temp != null){
             System.out.print(temp.value + " -> ");
             temp = temp.next;
@@ -182,10 +182,10 @@ public class LLSingly {
 
     /// leetCode
 
-    public LLSingly mergerr(LLSingly list1, LLSingly list2){
-        Node head1 = list1.head;
-        Node head2 = list2.head;
-        LLSingly res = new LLSingly();
+    public static ListNode mergerr(ListNode list1, ListNode list2){
+        next head1 = list1.head;
+        next head2 = list2.head;
+        ListNode res = new ListNode();
         while(head1 != null && head2 != null){
             if(head1.value < head2.value){
                 res.insertAtEnd(head1.value);
@@ -215,16 +215,18 @@ public class LLSingly {
 
 
 
-    private class Node{
+
+
+    private class next {
 
         private int value;
-        private Node next;
+        private next next;
 
-        public Node(int value) {
+        public next(int value) {
             this.value = value;
         }
 
-        public Node(int value, Node next){
+        public next(int value, next next){
             this.value = value;
             this.next = next;
         }

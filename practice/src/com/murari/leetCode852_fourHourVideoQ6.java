@@ -2,7 +2,7 @@ package com.murari;
 //mountain
 public class leetCode852_fourHourVideoQ6 {
     public static void main(String[] args) {
-        int[] arr = {0,1,0};
+        int[] arr = {1,21,12,32,1,23,4,3,3};
         int peak = peakMountainArray(arr);
         System.out.println(peak);
     }
