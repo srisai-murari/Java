@@ -10,7 +10,7 @@ public class sorting {
         System.out.println("original array\n" + Arrays.toString(testArr5));
         System.out.println();
         System.out.println("Done using bubblesort\n" + Arrays.toString(bubbleSort(testArr5)));
-        System.out.println();
+        System.out.println("Bubble sort also called sinking sort or exchange sort");
         System.out.println("Done using selection sort\n" + Arrays.toString(selectionSort(testArr5)));
         System.out.println();
         System.out.println("Done using insertion sort\n" + Arrays.toString(insertionSort(testArr5)));
@@ -61,11 +61,11 @@ public class sorting {
     static int[] bubbleSort(int[] arr){
         //Time complexities       best        worst       average
         //                        O(n)        O(n^2)       O(n^2)
-        //best case is possible only with the help of edge case written at line 52 (swap condition)
+        //best case is possible only with the help of edge case written at line 69 & line 79 (swap condition)
         int[] sorted = new int[arr.length];
         sorted = arr.clone();
         int n = sorted.length;
-        for (int i = 0; i < n-1; i++) {
+        for (int i = 0; i < n-1; i++) { // condition is n -1 because the last element is already sorted
             boolean swap = false;
             for (int j = 1; j < n - i; j++) {
                 if(sorted[j-1] > sorted[j]){
