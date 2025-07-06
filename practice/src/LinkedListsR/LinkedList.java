@@ -360,6 +360,7 @@ public Node merge(Node head1, Node head2){
  */
 /// MERGING IS DONE
 
+//    https://leetcode.com/problems/linked-list-cycle-ii/  to verify the below code use leetcode
 /// FAST AND SLOW POINTER METHOD TO FIND CYCLE IN A LINKEDLIST
 /*
     public boolean checkCycle(Node head){
@@ -403,6 +404,172 @@ public Node merge(Node head1, Node head2){
     }
 */
     /// END OF LENGTH OF CYCLE
+
+    /// FINDING INITIAL NODE OF THE CYCLE
+    /*
+    public Node  detectCycle(Node head){
+        Node fast = head;
+        Node slow = head;
+        int length = 0;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                slow = slow.next;
+                length = 1;
+                while (slow != fast) {
+                    slow = slow.next;
+                    length++;
+                }
+                break; //loop must be broken manually as the linkedlist has a cycle
+            }
+        }//till here we found length of cycle
+
+        if(length != 0){
+            fast = head;
+            slow = head;
+            int i = 0;
+            while (i < length) {
+                fast = fast.next;
+                i++;
+            }
+
+            while(slow != fast){
+                slow = slow.next;
+                fast = fast.next;
+            }
+
+            return slow;
+        }
+        return null;
+    }
+
+    */
+
+    /// FINDING MIDDLE OF THE LINKED LIST IN SINGLE PASS
+    /*
+    public Node middleNode(Node head){
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+     */
+
+    /// MERGE SORT
+    public Node mergeSort(Node head){
+        if(head == null || head.next == null){
+            return head;
+        }
+        Node mid = middleNode(head);
+        Node left = mergeSort(head);
+        Node right = mergeSort(mid);
+
+        return merge(left, right);
+    }
+    public Node merge(Node head1, Node head2){
+        if(head1 == null)
+            return head2;
+
+        Node temp1 = head1;
+        Node temp2 = head2;
+
+        Node node = new Node(-1); //a temp node
+        head = node; //consider this node as head
+
+        while (temp1 != null && temp2 != null) {
+            if(temp1.val < temp2.val){
+                node.next = temp1;
+                temp1 = temp1.next;
+            }
+            else {
+                node.next = temp2;
+                temp2 = temp2.next;
+            }
+            node = node.next;
+        }
+
+        while(temp1 != null){
+            node.next = temp1;
+            temp1 = temp1.next;
+
+            node = node.next;
+        }
+        while(temp2 != null){
+            node.next = temp2;
+            temp2 = temp2.next;
+
+            node = node.next;
+        }
+        return head.next;
+    }
+    public Node middleNode(Node head){
+        //need to find mid-1 node and store its next in mid
+        //change mid -1.next to null
+        //head 1 -> 2 -> 4 -> 43 -> 1 -> 2 -> 3 -> null this to this
+        //head  -> 1  -> 2  -> 4 -> null, mid  -> 43 -> 1 -> 2 -> 3 -> null
+
+//        Node midPrev = null;
+//
+//        while(head != null && head.next != null){
+//            if(midPrev == null)
+//                midPrev = head;
+//            else midPrev = midPrev.next;
+//            head = head.next.next;
+//        }
+//        Node mid = midPrev.next;
+//        midPrev.next = null;
+//        return mid;
+
+/// method 2
+        //find size
+        Node temp = head;
+        int size = 0;
+        while(temp != null){
+            temp = temp.next;
+            size++;
+        }
+        //find mid-1 element i.e size/2 -1
+        int i = 1;
+        temp = head;
+        while(i < (size/2)-1){
+            temp = temp.next;
+            i++;
+        }
+        //break connection bw mid-1 and mid
+        Node mid = temp.next;
+        temp.next = null;
+        return mid;
+
+    }
+    public static void main(String[] args) {
+        LinkedList LL = new LinkedList();
+//        LL.insertEnd(1);
+//        LL.insertEnd(2);
+//        LL.insertEnd(4);
+//        LL.insertEnd(43);
+
+//        LL.insertEnd(1);
+//        LL.insertEnd(3);
+//        LL.insertEnd(4);
+
+        LL.display();
+
+
+        Node merge = LL.mergeSort(LL.head);
+
+        while(merge != null){
+            System.out.print(merge.val + " -> ");
+            merge = merge.next;
+        }
+        System.out.println("null");
+
+    }
+
 
 
 
