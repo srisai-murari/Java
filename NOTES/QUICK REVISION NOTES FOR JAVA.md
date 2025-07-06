@@ -2,6 +2,14 @@
 
 
 
+**⭐APPLY BINARY SEARCH WHEN A SORTED ARRAY IS FOUND ⭐**
+
+**⭐APPLY CYCLIC SORT WHEN NUMBERS FROM 1 TO N (or) 0 TO N IS GIVEN⭐**
+
+
+
+
+
 ###### **TO COUNT NO OF DIGITS IN IN AN INTEGER**
 
 
@@ -60,9 +68,67 @@ count = (int) (Math.log(num) / Math.log(baseValue)) + 1 //basevalue is 10 for de
 
 time complexities   best           worst         average
 
-&nbsp;		       O(N)          O(N^2)         O(N^2)
+ 		       O(N)          O(N^2)         O(N^2)
 
 * stable algorithm
 * steps are a lot reduced when array is sorted as compared with bubble sort.
 * used for smaller values of n
 * works good when array is partially sorted, that's why this is used in HYBRID SORT.
+
+
+
+###### **TIME COMPLEXITY OF CYCLIC SORTING ALGO**
+
+* MOST USED WHEN GIVEN ARRAY STARTS FROM 1 TILL N
+* Time complexities             worst           best           average
+
+ 				O(N)            O(N)             O(N)
+
+
+
+
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_END\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+
+
+###### **STRINGS:**
+
+
+
+* String pool is a separate memory structure in heap only for strings : (use) to not create multiple objects and make code optimized
+* Strings are immutable
+* String    str =   "Man";
+
+  Datatype  var  =  object;
+
+
+
+* Strings are immutable because
+
+ 	Scenario : Imagine a few persons are named "John" and the String "John" is stored in string pool and everyone pointing to the same object "John"
+
+ 		  If one person wants to change his name to "Johnny" then others who are pointing to the same object "John" will get their name changed too.
+
+
+
+**That's why strings are immutable**
+
+* Use "new" keyword to create a new object of same values
+* Use ".equals()" method to compare 2 strings and not == operator
+* To convert an integer to String use "String s = Integer.toString(n);"
+* Anything passed in println() function, everything is converted to string using "toString();"
+* When a string is concatenated with an integer (int) the integer is converted into a wrapper class Integer.
+* ###### **TYPE CASTING**
+* int a = 'a' - 0;
+* char = (char) (a);
+* char ch = (char)('a' + 0);
+* 
+* //to convert things into ascii
+* int b = 'a' + 'b';
+* 
+* \_\_\_\_\_end\_\_\_\_\_\_
+* when an object is present in "sout" the "println" calls toString() to print the object values
+* operator overloading is not present in java
+* split(), strip(), trim()
+* 
