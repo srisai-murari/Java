@@ -1,5 +1,7 @@
 package LinkedListsR;
 
+import java.util.ArrayList;
+
 public class LinkedList {
     /// head and tail are pointers which points to the first and last
     private Node head;
@@ -153,6 +155,8 @@ public class LinkedList {
 
 
     private Node fetchTail(){
+        if(head == null)
+            return null;
         Node temp = head;
         while(temp.next != null){
             temp = temp.next;
@@ -187,14 +191,19 @@ public class LinkedList {
 
 
     private Node fetchIndex(int index){
+        if(index == 0)
+            return head;
+
         Node indexPrev = head;
-        int i = 1;
+        int i = 0;
         while (i < index) {
             indexPrev = indexPrev.next;
             i++;
         }
         return indexPrev;
     }
+
+
 
 
 
@@ -257,7 +266,7 @@ public class LinkedList {
 
     }
 
-    //MERGING BY CREATING AN ANSWER LINKEDLIST
+    ///MERGING BY CREATING AN ANSWER LINKEDLIST
 
     public LinkedList merge(LinkedList l1, LinkedList l2){
         Node f = l1.head;
@@ -286,6 +295,8 @@ public class LinkedList {
 
         return ans;
     }
+
+    ///COMPLETED PERFORMING SORTING USING NEW LINKEDLIST
 
 
 
@@ -461,6 +472,7 @@ public Node merge(Node head1, Node head2){
      */
 
     /// MERGE SORT
+/*
     public Node mergeSort(Node head){
         if(head == null || head.next == null){
             return head;
@@ -534,7 +546,7 @@ public Node merge(Node head1, Node head2){
             size++;
         }
         //find mid-1 element i.e size/2 -1
-        int i = 1;
+        int i = 0;
         temp = head;
         while(i < (size/2)-1){
             temp = temp.next;
@@ -548,14 +560,14 @@ public Node merge(Node head1, Node head2){
     }
     public static void main(String[] args) {
         LinkedList LL = new LinkedList();
-//        LL.insertEnd(1);
-//        LL.insertEnd(2);
-//        LL.insertEnd(4);
-//        LL.insertEnd(43);
-
-//        LL.insertEnd(1);
-//        LL.insertEnd(3);
-//        LL.insertEnd(4);
+        LL.insertEnd(1);
+        LL.insertEnd(2);
+        LL.insertEnd(4);
+        LL.insertEnd(43);
+//
+        LL.insertEnd(1);
+        LL.insertEnd(3);
+        LL.insertEnd(4);
 
         LL.display();
 
@@ -569,8 +581,384 @@ public Node merge(Node head1, Node head2){
         System.out.println("null");
 
     }
+ */
+    /// END OF MERGE SORT LINKED LIST
+
+    /// SORT LINKED LIST USING BUBBLE SORT
+    /*
+    public void bubble(int row, int col, Node end){
+        if(row == 0){
+            return;
+        }
+        else if(col < row){
+            Node first = fetchIndex(col);
+            Node second = first.next;
+
+            if(first.val > second.val){
+//            if they are at the beginning
+                if(first == head) {
+                    head = second;
+                    first.next = second.next;
+                    second.next = first;
+                }
+//            if they are at the end
+                else if(second == end){
+                    //find this    ↓   tail_prev      end/tail
+                    //            prev   first        second
+                    //prev is size - 2 element
+                    Node prev = fetchIndex(col - 1);
+                    prev.next = second;
+                    end = first;
+                    first.next = null;
+                    second.next = first;
+                }
+//              if they are somewhere in the mid
+                else {
+                    Node prev = fetchIndex(col - 1);
+                    prev.next = second;
+                    first.next = second.next;
+                    second.next = first;
+                }
+
+            }
+            bubble(row, col+1, end);
+        }
+        else if(col == row){
+            bubble(row - 1, 0, end);
+        }
+
+
+    }
+    public static void main(String [] args){
+        LinkedList list = new LinkedList();
+        list.insertEnd(4);
+        list.insertEnd(2);
+        list.insertEnd(1);
+        list.insertEnd(3);
+        list.display();
+        Node end = list.fetchTail();
+
+        list.bubble(list.size-1, 0, end);
+
+        list.display();
+
+    }
+
+     */
+
+    /// SORT USING BUBBLE SORT IS DONE
+
+    /// REVERSE SINGLY LINKEDLIST
+/*
+    public Node reverse(Node temp, Node tail){
+        if(temp == tail){
+            head = tail;
+            return tail;
+        }
+
+        tail = reverse(temp.next, tail);
+
+        tail.next = temp;
+        tail = temp;
+        tail.next = null;
+
+        return tail;
+    }
+
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+
+        list.insertEnd(1);
+        list.insertEnd(2);
+        list.insertEnd(3);
+        list.insertEnd(4);
+        list.insertEnd(5);
+
+        Node tail = list.fetchTail();
+        list.display();
+        list.reverse(list.head, tail);
+        list.display();
+
+    }
+ */
+/// REVERSING A LINKEDLIST IS DONE
+/*
+    public Node reverse(Node head){
+
+        if(head == null)
+            return null;
+        Node prev = null;
+        Node pres = head;
+        Node next = pres.next;
+
+        while(pres != null){
+            pres.next = prev;
+            prev = pres;
+            pres = next;
+            if(next != null)
+                next = next.next;
+        }
+        return prev;
+    }
+
+
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+
+        list.insertEnd(1);
+        list.insertEnd(2);
+        list.insertEnd(3);
+        list.insertEnd(4);
+        list.insertEnd(5);
+
+        list.display();
+        list.head = list.reverse(list.head);
+        list.display();
+
+
+    }
+
+ */
+    /// END OF REVERSING A LINKED LIST WITHOUT RECURSION
 
 
 
+
+    /// REVERSING A PART OF LINKED LIST
+/*
+    public Node partReverse(Node head, int left, int right){
+        if(left == right)
+            return head;
+
+        //move till left - 1
+        Node prev = null;
+        Node current = head;
+
+        for(int i = 0; i < left - 1; i++){
+            prev = current;
+            current = current.next;
+        }
+
+        Node subPrev = prev; //node that is just behind the sublist that's supposed to be reversed
+        Node newEnd = current;
+
+        //eg : 1           2  3  4  5  6  rotate 2 3 4
+//             ↑           ↑
+//            subprev    newEnd
+        //now reverse the elements that are supposed to be reversed
+
+        Node next = current.next;
+        for(int i = 0; i < right - left + 1; i++){ //right - left +1 is the total no of elements to be reversed
+            current.next = prev;
+            prev = current;
+            current = next;
+            if(next.next != null)
+                next = next.next;
+        }
+
+        if(subPrev != null){
+            subPrev.next = prev;
+        }else head = prev;
+
+        newEnd.next = current;
+
+        return head;
+    }
+
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.insertEnd(1);
+        list.insertEnd(2);
+        list.insertEnd(3);
+        list.insertEnd(4);
+        list.insertEnd(5);
+        list.insertEnd(6);
+
+        list.display();
+        list.partReverse(list.head, 2, 4);
+        list.display();
+
+    }
+ */
+///  REVERSING PART OF THE LIST IS DONE
+
+    /// IS PALINDROME
+    /*
+    public boolean isPalindrome(Node head){
+        if(head == null)
+            return true;
+        //find mid
+        Node mid = getMid(head);
+        //reverse from mid
+        Node revHead= reverse(mid);
+        Node reReverse = revHead;
+
+
+        while(head != null && revHead != null){
+            if(head.val != revHead.val){
+                break;
+            }
+                head = head.next;
+                revHead = revHead.next;
+        }
+
+
+        reverse(reReverse);
+        if(head == null || revHead == null)
+            return true;
+        return false;
+    }
+
+    public Node reverse(Node head){
+        Node prev = null;
+        Node pres = head;
+        Node next = pres.next;
+
+        while(pres != null){
+            pres.next = prev;
+            prev = pres;
+            pres = next;
+            if(next != null)
+                next = next.next;
+        }
+        return prev;
+    }
+
+    public Node getMid(Node head){
+        Node fast = head;
+        Node slow = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+
+
+    }
+
+
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+
+        list.insertEnd(1);
+        list.insertEnd(2);
+//        list.insertEnd(2);
+//        list.insertEnd(1);
+
+        list.display();
+        System.out.println(list.isPalindrome(list.head));
+        list.display();
+    }
+
+     */
+    /// IS PALINDROME DONE
+/*
+    public void reOrderList(Node head){
+        if(head == null || head.next == null)
+            return ;
+        //get mid and reverse and add them into list
+        Node mid = getMid(head);
+        Node revHead = reverse(mid);
+
+        while (head != null && revHead != null) {
+            Node temp = head.next;
+            head.next = revHead;
+            head = temp;
+
+            temp = revHead.next;
+            revHead.next = head;
+            revHead = temp;
+
+        }
+        if(head != null){
+            head.next = null;
+        }
+    }
+    public Node getMid(Node head){
+        if(head == null || head.next == null)
+            return head;
+
+        Node fast = head;
+        Node slow = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public Node reverse(Node head){
+        Node prev = null;
+        Node pres = head;
+        Node next = pres.next;
+
+        while (pres != null) {
+            pres.next = prev;
+            prev = pres;
+            pres = next;
+            if(next != null)
+                next = next.next;
+        }
+        return prev;
+    }
+
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+
+        list.insertEnd(1);
+        list.insertEnd(2);
+        list.insertEnd(3);
+        list.insertEnd(4);
+        list.insertEnd(5);
+
+        list.display();
+        list.reOrderList(list.head);
+        list.display();
+    }
+
+ */
+    /// IS PALINDROME DONE
+
+
+    public Node rotate(Node head, int k){
+        if(head == null ||head.next != null || k == 0)
+            return head;
+
+        Node tail = fetchTail();
+
+        for(int i = 0; i < k; i++){
+            Node tempHead = head;
+            head = head.next;
+
+            tail.next = tempHead;
+            tempHead.next = null;
+
+            tail = tail.next;
+        }
+
+        return head;
+
+
+
+
+    }
+
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+
+        list.insertEnd(1);
+        list.insertEnd(2);
+        list.insertEnd(3);
+        list.insertEnd(4);
+        list.insertEnd(5);
+
+        list.display();
+        list.head = list.rotate(list.head, 2);
+
+        list.display();
+
+    }
 
 }
