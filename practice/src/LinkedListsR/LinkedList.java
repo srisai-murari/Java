@@ -923,39 +923,56 @@ public Node merge(Node head1, Node head2){
 
 
     public Node rotate(Node head, int k){
-        if(head == null ||head.next != null || k == 0)
+        if(head == null || head.next == null || k ==0)
             return head;
-
+        //find tail
         Node tail = fetchTail();
 
-        for(int i = 0; i < k; i++){
-            Node tempHead = head;
-            head = head.next;
-
-            tail.next = tempHead;
-            tempHead.next = null;
-
-            tail = tail.next;
+        //find length
+        int length = 0;
+        Node temp = head;
+        while(temp != null){
+            temp = temp.next;
+            length++;
         }
 
-        return head;
+        //optimize length
+        k = k % length;
+        if(k == length)
+            return head;
+
+        //find (l - k)th node
+        temp = head;
+        for (int i = 1; i < length - k; i++) {
+            temp = temp.next;
+        }
+
+
+        tail.next = head;
+        head = temp.next;
+        temp.next = null;
+
+//        while(temp.next != head)
+//            if()
 
 
 
 
+return head;
     }
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
 
+        list.insertEnd(0);
         list.insertEnd(1);
+//        list.insertEnd(3);
+//        list.insertEnd(4);
         list.insertEnd(2);
-        list.insertEnd(3);
-        list.insertEnd(4);
-        list.insertEnd(5);
+//        list.insertEnd(1);
 
         list.display();
-        list.head = list.rotate(list.head, 2);
+        list.head = list.rotate(list.head, 4);
 
         list.display();
 
