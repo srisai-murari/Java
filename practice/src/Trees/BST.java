@@ -8,7 +8,7 @@ public class BST {
 
     }
 
-    public int height (Node node){
+    private int height (Node node){
         if(node == null)
             return -1;
         else return node.height;
