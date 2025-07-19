@@ -919,9 +919,10 @@ public Node merge(Node head1, Node head2){
     }
 
  */
+
     /// IS PALINDROME DONE
 
-
+/*
     public Node rotate(Node head, int k){
         if(head == null || head.next == null || k ==0)
             return head;
@@ -977,5 +978,66 @@ return head;
         list.display();
 
     }
+ */
+    public Node addition(Node l1, Node l2) {
+
+        Node dummy = new Node(0);
+        Node result = dummy;
+
+        int total = 0;
+        int carry = 0;
+        while(l1 != null || l2 != null || carry != 0){
+            total = carry;
+
+            if (l1 != null) {
+                total = total + l1.val;
+                l1 = l1.next;
+            }
+
+            if (l2 != null) {
+                total = total + l2.val;
+                l2 = l2.next;
+            }
+
+            carry = total / 10;
+            total = total % 10;
+
+            dummy.next = new Node(total);
+            dummy = dummy.next;
+
+        }
+
+        return result.next;
+
+    }
+
+
+    public static void main(String[] args) {
+        LinkedList l1 = new LinkedList();
+        LinkedList l2 = new LinkedList();
+
+        l1.insertEnd(2);
+        l1.insertEnd(4);
+        l1.insertEnd(3);
+
+        l2.insertEnd(5);
+        l2.insertEnd(6);
+        l2.insertEnd(4);
+
+        Node temp = l1.addition(l1.head,l2.head);
+
+
+        while(temp != null){
+            System.out.println(temp.val);
+            temp = temp.next;
+
+        }
+
+
+
+
+    }
+
+
 
 }
