@@ -1,4 +1,4 @@
-package Recursions;
+package Recursions.Sorting;
 
 public class Stars {
     public static void main(String[] args) {

@@ -1,11 +1,13 @@
 /// subset clean explanation
 package Recursions.Strings;
-import java.lang.classfile.AttributeMapper;
 import java.util.*;
-public class IntegerSubsets {
+public class IntegerSubsetsLeetCode {
     public static void main(String[] args) {
-        int [] arr = {1,2,2};
+        int [] arr = {1,2,1};
         System.out.println(subset(arr));
+
+        System.out.println(subsetDup(arr));
+
         System.out.println(subsetDupK(arr));
     }
 
@@ -103,9 +105,13 @@ the loop runs forever as the outer list's size gets updated all the time
 
         /// ignoring duplicates with better complexity
         public static List<List<Integer>> subsetDupK(int [] nums){
+            Arrays.sort(nums);
+
             List<List<Integer>> outer = new ArrayList<>();
             outer.add(new ArrayList<>());
+
             int start = 0, end = 0;
+
             for(int i = 0; i < nums.length; i++){
                 int n = outer.size();
 

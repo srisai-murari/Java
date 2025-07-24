@@ -1,14 +1,13 @@
 package Recursions.Strings;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Subset {
     public static void main(String[] args) {
 
         System.out.println(subsetRet("", "abc"));
+        System.out.println(subsetLeet("", "123", new ArrayList<>()));
+        System.out.println(subsetLeetAdjust("", "123", new ArrayList<>()));
     }
 //No ret type
     public static void subset(String p, String up){
@@ -58,7 +57,7 @@ public class Subset {
     }
 
 
-    //arrayList of list
+    //arrayList of list                                               ↓give num in string
     public static ArrayList<ArrayList<Integer>> subsetLeet (String p, String up, ArrayList<ArrayList<Integer>> outer){
         if(up.isEmpty()){
             if(!p.isEmpty()){
@@ -77,5 +76,35 @@ public class Subset {
         return outer;
     }
 
+    //without using Integer.parseInt();
+    public static ArrayList<ArrayList<Integer>> subsetLeetAdjust (String p, String up, ArrayList<ArrayList<Integer>> outer){
+        if(up.isEmpty()){
+            if(!p.isEmpty()){
+                ArrayList<Integer> inner = new ArrayList<>();
+//                inner.add(Integer.parseInt(p));
+                inner.add(parseInt(p));
+
+                outer.add(inner);
+            }
+            return outer;
+        }
+
+        subsetLeetAdjust(p + up.charAt(0), up.substring(1), outer);
+        subsetLeetAdjust(p, up.substring(1), outer);
+
+
+        return outer;
+    }
+
+
+    public static int parseInt(String p){
+        int n = 0, conv = 0;
+        for (int i = 0; i < p.length(); i++){
+            char ch = p.charAt(i);
+            conv = ch - '0';
+            n = (n * 10) + conv;
+        }
+        return n;
+    }
 
 }
