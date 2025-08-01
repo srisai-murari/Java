@@ -13,7 +13,12 @@ public class Mazz {
         ArrayList<String> list = pathRet(3, 3, "");
         System.out.println(list);
 
-        list = path(3, 3, "", new ArrayList<>());
+
+        list = path("", 1, 1, new int [3][3]);
+        System.out.println(list);
+
+
+        list = path(1, 1, "", new ArrayList<>());
         System.out.println(list);
     }
 
@@ -80,6 +85,25 @@ public class Mazz {
 
         return list;
 
+    }
+
+    public static ArrayList<String> path(String p, int row, int col, int [][] board) {
+        if (row == board.length && col == board[0].length){
+            ArrayList<String> list = new ArrayList<>();
+            list.add(p);
+            return list;
+        }
+        ArrayList<String> left = new ArrayList<>();
+        ArrayList<String> right = new ArrayList<>();
+        if(row < board.length){
+            left.addAll(path(p + '↓', row - 1, col, board));
+        }
+
+        if(col < board[0].length)
+            right.addAll(path(p + '→', row, col - 1, board));
+
+        left.addAll(right);
+        return left;
     }
 
 
