@@ -50,7 +50,7 @@ class vere {
       return n;
 
  
-    return (int) ((n % 10) * Math.pow(10, pow)) + rev(n / 10, pow - 1); 
+    return (int) ((n  % 10) * Math.pow(10, pow)) + rev(n / 10, pow - 1);
   }
 
 

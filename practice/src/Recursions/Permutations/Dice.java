@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Dice {
     public static void main(String[] args) {
 //        dice("", 7, 6);
-        System.out.println(diceCount("", 11, 6, 2));
-        System.out.println(diceRet("", 4));
+        System.out.println(diceCount("", 6, 6, 66));
+        System.out.println(diceRet("", 5, 6));
 //        String s = "";
 //        s = s + 1;
 //        System.out.println(s);
@@ -25,7 +25,7 @@ public class Dice {
         }
     }
 
-    public static ArrayList<String> diceRet(String p, int target) {
+    public static ArrayList<String> diceRet(String p, int target, int n) {
         if(target == 0){
             ArrayList<String> list = new ArrayList<>();
             list.add(p);
@@ -33,8 +33,8 @@ public class Dice {
         }
 
         ArrayList<String> list = new ArrayList<>();
-        for (int i = 1; i <= target && i <= 6; i++) {
-            list.addAll(diceRet(p + i, target - i));
+        for (int i = 1; i <= target && i <= n; i++) {
+            list.addAll(diceRet(p + i, target - i, n));
         }
         return list;
     }
@@ -49,7 +49,7 @@ public class Dice {
         }
 
         int count = 0;
-        for (int i = 1; i <=  faces &&i <= target; i++) {
+        for (int i = 1; i <=  faces && i <= target; i++) {
             count = count + diceCount(p + i, target - i, faces, chances);
         }
 
