@@ -8,6 +8,8 @@ public class Subset {
         System.out.println(subsetRet("", "abc"));
         System.out.println(subsetLeet("", "123", new ArrayList<>()));
         System.out.println(subsetLeetAdjust("", "123", new ArrayList<>()));
+        System.out.println();
+        System.out.println(subsetLeetAdjustAddAll("", "123"));
     }
 //No ret type
     public static void subset(String p, String up){
@@ -94,6 +96,29 @@ public class Subset {
 
 
         return outer;
+    }
+
+    public static ArrayList<ArrayList<Integer>> subsetLeetAdjustAddAll (String p, String up){
+        ArrayList<ArrayList<Integer>> outer2 = new ArrayList<>();
+
+        if(up.isEmpty()){
+            if(!p.isEmpty()){
+                ArrayList<Integer> inner = new ArrayList<>();
+//                inner.add(Integer.parseInt(p));
+                inner.add(parseInt(p));
+
+                outer2.add(inner);
+
+            }
+            return outer2;
+        }
+
+
+        outer2.addAll(subsetLeetAdjustAddAll(p + up.charAt(0), up.substring(1)));
+        outer2.addAll(subsetLeetAdjustAddAll(p, up.substring(1)));
+
+
+        return outer2;
     }
 
 

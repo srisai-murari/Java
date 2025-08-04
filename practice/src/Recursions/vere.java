@@ -2,13 +2,14 @@ package Recursions;
 
 class vere {
   public static void main(String[] args) {
-    System.out.println(rev(-20202, 4));
+    int n = -100;
+    System.out.println(rev(n,(int) (Math.pow(10, (int)(Math.log10(Math.abs(n))) ))));
 
     //can use math.log
     int noOfDigits = (int)(Math.log10(2020))+ 1;
     System.out.println(noOfDigits);
 
-    System.out.println(palindrome(202));
+    System.out.println(palindrome(-121));
 
     System.out.println(palin("2022", 0, 3));
 
@@ -22,7 +23,7 @@ class vere {
   }
 
   static boolean palindrome(int n){
-    if(n == rev(n, (int) Math.log10(n)))
+    if (n == rev(n, (int) (Math.pow(10, (int) (Math.log10(Math.abs(n)))))))
       return true;
     return false;
       
@@ -50,7 +51,7 @@ class vere {
       return n;
 
  
-    return (int) ((n  % 10) * Math.pow(10, pow)) + rev(n / 10, pow - 1);
+    return (n  % 10) * pow + rev(n / 10, pow/10);
   }
 
 

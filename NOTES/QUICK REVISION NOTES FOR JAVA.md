@@ -10,6 +10,24 @@
 
 
 
+###### \*\*GOLDEN RATIO : (\*\*1 + √5) / 2
+
+
+
+###### **OCTAL AND BINARY REP IN JAVA**
+
+
+
+if(100 == 0100) -> false (because any number with trailing 0 i.e., 0100 is 8^2 \* 1 + 8^1 \* 0 + 8^0 \* 0 = 64)
+
+as 64 != 100 its false;
+
+
+
+\*\*\*\*
+
+
+
 ###### **TO COUNT NO OF DIGITS IN IN AN INTEGER**
 
 
@@ -131,4 +149,68 @@ time complexities   best           worst         average
 * when an object is present in "sout" the "println" calls toString() to print the object values
 * operator overloading is not present in java
 * split(), strip(), trim()
-* 
+
+
+
+
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+
+
+TO FIND START INDEX OF A CERTAIN BOX IN SUDOKU
+
+---
+
+int start = givenRow - (givenRow % (sqrt(the whole boardlength)));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###### **LINKED LIST**
+
+* When a linkedList with cycle is given then use fast and slow pointer method
+
+
+
+
+
+
+
+
+
+
+
+###### **REVERSING A LINKED LIST**
+
+https://leetcode.com/problems/reverse-linked-list/
+
