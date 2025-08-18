@@ -1,11 +1,14 @@
 package com.murari;
 
+import static com.murari.leetCode645.swap;
+
 public class linearStringSearch {
     public static void main(String[] args) {
         String str = "Mahesh Babu";
         char c = '1';
         boolean search2 = search2(str, c);
         System.out.println(search2);
+
     }
 //    static boolean search(String str, char target){
 //        if(str.length() == 0)

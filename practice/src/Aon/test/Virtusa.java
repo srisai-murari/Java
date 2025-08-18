@@ -19,14 +19,23 @@ public class Virtusa {
         int [] count = new int [books.length];
         for (int i = 0; i < books.length; i++) {
             count[i] = countPrimes(books[i], prime);
-        }
-        //bubble sort
-        for (int i = 0; i < books.length; i++) {
-            for (int j = 1; j < books.length; j++) {
-                if (count[j - 1] > count[j] || count[j - 1] == count[j] && books[j - 1] > books[j])
-                    swap(books, count, j - 1, j);
-            }
+        }        System.out.println(Arrays.toString(count));
 
+
+        //bubble sort
+        for (int i = 0; i < books.length - 1; i++) {
+            boolean swapped = false;
+            for (int j = 1; j < books.length - i; j++) {
+                if (count[j - 1] > count[j] || count[j - 1] == count[j] && books[j - 1] > books[j]){
+                    swap(books, count, j - 1, j);
+                    swapped = true;
+                }
+            }
+            System.out.println(i);
+            System.out.println(Arrays.toString(books));
+            System.out.println(Arrays.toString(count));
+            if(!swapped)
+                return;
         }
     }
 
