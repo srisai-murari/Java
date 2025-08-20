@@ -1,4 +1,4 @@
-package MaxSubArrat;
+package Concepts.MaxSubArrat;
 
 public class MaxSubArrayBrute {
     public static void main(String[] args) {

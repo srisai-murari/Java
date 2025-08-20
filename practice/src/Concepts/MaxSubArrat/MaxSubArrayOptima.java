@@ -1,4 +1,4 @@
-package MaxSubArrat;
+package Concepts.MaxSubArrat;
 
 import java.util.Arrays;
 
