@@ -4,7 +4,7 @@ public class ___newtonRaphson {
     public static void main(String[] args) {
         double val = sqrt(2);
         System.out.printf("%.3f\n",val);
-        double newtonRaphson = newtonRaphson(40);
+        double newtonRaphson = newtonRaphson(2);
         System.out.printf("%.3f",newtonRaphson);
     }
 
