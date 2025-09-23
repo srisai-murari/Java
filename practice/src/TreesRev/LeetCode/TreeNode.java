@@ -271,6 +271,23 @@ public List<List<Integer>> levelOrderBottom(TreeNode root) {
 
     }
 
+    public static boolean doesPathExist(int [] arr, TreeNode root){
+        if(root == null) return arr.length == 0;
+
+        return helper(root, arr, 0);
+    }
+
+    private static boolean helper(TreeNode root, int [] arr, int level){
+        if(root == null) return false;
+
+        if(level >= arr.length && root.val != arr[level]){
+            return false;
+        }
+
+        if(root.left == null && root.right == null && level == arr.length -1) return true;
+
+        return helper(root.left, arr, level+1) || helper(root.right, arr, level+1);
+    }
 
 
 }

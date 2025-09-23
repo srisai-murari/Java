@@ -43,11 +43,19 @@ public class RadixSort {
         System.out.println("Updated count Array " + Arrays.toString(count));
 
         for (int i = arr.length - 1; i >= 0 ; i--) {
-            output[count[(arr[i] / exp) % 10] - 1]  = arr[i];
-            count[(arr[i] / exp) % 10]--;
+//            int count_index = (arr[i] / exp) % 10;
+//            int output_index = --count[count_index];
+//            output[output_index]  = arr[i];
+////            count[count_index]--;
+//
+
+            output[--count[(arr[i] / exp) % 10]]  = arr[i];
         }
+
+        System.out.println(Arrays.toString(count) + " after everything");
         System.out.println("Output array"  + Arrays.toString(output));
 
+        System.out.println();
         System.arraycopy(output, 0, arr, 0, arr.length);
 
     }

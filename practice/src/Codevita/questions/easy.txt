@@ -1,0 +1,3 @@
+Which of these is NOT an OOP concept?|Encapsulation|Polymorphism|Inheritance|Compilation|3
+Keyword to inherit a class in Java?|implement|extends|inherits|super|1
+Constructors in Java can be:|Overloaded|Overridden|Both|Neither|0
