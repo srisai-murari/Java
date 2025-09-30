@@ -54,5 +54,7 @@ public class Test {
         return (minLen == n + 1) ? 0 : minLen;
     }
 
+
+
 }
 

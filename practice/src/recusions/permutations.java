@@ -6,6 +6,7 @@ public class permutations {
     public static void main(String[] args) {
         ArrayList<String> ans = retPerm("", "123");
         System.out.println(ans);
+        perm("", "123");
         //convert ans arraylist to list of list
 
         List<List<Integer>> finalAns = convertToIntegerLists(ans);

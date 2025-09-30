@@ -36,10 +36,30 @@ public class LC1823_circular_game {
         return q.poll();
     }
 
+    public static int findWinner_Approach3(int n, int k){
+        return helper3(n, k) + 1;
+    }
+
+    public static int helper3(int n, int k){
+        if(n == 1)
+            return 0;
+
+        int val = helper3(n - 1, k) + k;
+        return val % n;
+    }
+
+    public static int findWinner_Approach4(int n, int k){
+        int ans = 0;
+        for(int i = 2; i <= n; i++)
+            ans = (ans + k) % i;
+        return ans + 1;
+    }
+
 
     public static void main(String[] args) {
         System.out.println(findWinner_Approach1(5, 2));
         System.out.println(findWinner_Approach2(5, 2));
-
+        System.out.println(findWinner_Approach3(5, 2));
+        System.out.println(findWinner_Approach4(5, 2));
     }
 }
