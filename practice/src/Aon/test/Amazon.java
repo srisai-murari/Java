@@ -1,6 +1,5 @@
 package Aon.test;
 
-import java.io.*;
 import java.util.*;
 
 public class Amazon {
@@ -54,7 +53,7 @@ public class Amazon {
         int n = s.length();
         int totalCost = 0;
         int i = 0;
-        int pairCount = 0;
+        int samePairCount = 0;
 
 
         while(i < n - 1){
@@ -62,24 +61,31 @@ public class Amazon {
                 ch[i] = '0';
                 ch[i + 1] = '0';
                 i++;
-                pairCount++;
-                totalCost += matchCost;
+                samePairCount++;
             }
             i++;
         }
 
-        int leftPairs = (n - (pairCount * 2)) / 2;
-        totalCost += leftPairs * mismatchCost;
+        int leftPairs = (n - (samePairCount * 2)) / 2;
+        System.out.println(samePairCount + " " + leftPairs);
+        //so far we've found no of pairs and non pairs
+
+        if(matchCost < mismatchCost){
+            totalCost += matchCost * samePairCount + mismatchCost * leftPairs;
+        }
+        else
+            totalCost += mismatchCost * (leftPairs + samePairCount);
 
 
 
         return totalCost;
     }
 
+
+
     public static void main(String[] args) {
         String s = "oiuodaeqrytd";
-        System.out.println(minimizeCleaningCost(s, 2, 4));
-        System.out.println(minimizeCleaningCost2(s, 2, 4));
-
+        System.out.println(minimizeCleaningCost(s, 12, 12));
+        System.out.println(minimizeCleaningCost2(s, 12, 12));
     }
 }
