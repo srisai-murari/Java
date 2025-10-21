@@ -81,11 +81,49 @@ public class Amazon {
         return totalCost;
     }
 
+    public static int findSumOfUniqueGaps(int [] arr){
+        List<List<Integer>> sub = subArrays(arr);
+
+        int res = 0;
+        for(List<Integer> l : sub){
+            Collections.sort(l);
+            int small = l.get(0);
+            int large = l.get(l.size() - 1);
+
+            res += large - small;
+        }
+
+
+
+        return 0;
+
+    }
+
+    private static List<List<Integer>> subArrays(int [] arr){
+        List<List<Integer>> subArrays = new ArrayList<>();
+        for(int i = 0; i < arr.length - 1; i++){
+            for(int j = i; j < arr.length; j++){
+                List<Integer> sub = new ArrayList<>();
+                if(j - i != 0){
+                    for(int k = i;k <= j; k++){
+                        sub.add(arr[k]);
+                    }
+                }
+                if(!sub.isEmpty())
+                    subArrays.add(sub);
+            }
+
+        }
+        return subArrays;
+    }
+
 
 
     public static void main(String[] args) {
         String s = "oiuodaeqrytd";
         System.out.println(minimizeCleaningCost(s, 12, 12));
         System.out.println(minimizeCleaningCost2(s, 12, 12));
+
+        System.out.println(subArrays(new int []{2,1,4,3}));
     }
 }
